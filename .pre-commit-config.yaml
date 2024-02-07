@@ -1,0 +1,15 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args: 
+          [
+            "-rn", # Only show the errors
+            "-sn", # Only show the error number
+            "--rcfile=.pylintrc", # link to the .pylintrc file
+            "--load-plugins=pylint.extensions.docparams", # load the docparams plugin
+          ]
