@@ -1,9 +1,11 @@
 [MAIN]
 disable=
-	C0114,  # Missing module docstring
-	C0115,  # Missing class docstring
-	C0116,  # Missing function or method docstring
-	W0703,  # Catching too general exception Exception
+    C0114, # missing-module-docstring
+    C0115, # Missing-class-docstring
+    C0116, # missing-function-docstring
+    W0703, # Catching too general exception Exception
+    R0903, # too-few-public-methods
+	W0719, # broad-exception-raised
 	
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
@@ -335,11 +337,11 @@ expected-line-ending-format=
 ignore-long-lines=^\s*(# )?<?https?://\S+>?$
 
 # Number of spaces of indent required inside a hanging or continued line.
-indent-after-paren=4
+indent-after-paren=1
 
 # String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
 # tab).
-indent-string='    '
+indent-string="\t"
 
 # Maximum number of characters on a single line.
 max-line-length=100
