@@ -1,8 +1,12 @@
+import os
 from flask import Flask, request, jsonify
 from barcode import Code128
 from barcode.writer import ImageWriter
 
 app = Flask(__name__)
+
+if not os.path.exists('img'):
+	os.makedirs('img')
 
 @app.route('/create_tag', methods=["POST"])
 def create_tag():
@@ -10,7 +14,7 @@ def create_tag():
 	product_code = body.get('product_code')
 
 	tag = Code128(product_code, writer=ImageWriter())
-	path_from_tag = f'{tag}'
+	path_from_tag = f'img/{tag}'
 	tag.save(path_from_tag)
 
 	return jsonify({"tag_path": path_from_tag})
